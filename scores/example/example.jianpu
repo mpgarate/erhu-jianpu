@@ -1,0 +1,47 @@
+%%% Links:
+%%% - https://lilypond.org/doc/v2.22/Documentation/notation/list-of-articulations
+%%% - https://lilypond.org/doc/v2.21/Documentation/snippets/expressive-marks
+%%% - http://lilypond.org/doc/v2.23/Documentation/notation/other
+
+% Allows for using TextScripts inside the staff to insert symbols like:
+% ↗
+% ↘
+
+LP:
+  \override TextScript.extra-offset = #'(-3 . -7)
+:LP
+
+title=Example
+1=F
+4/4
+
+%%%%%%%%%% Bar 1-2 %%%%%%%%%%
+1 \downbow \mf ( 2 3 4 5 ) - - -
+
+%%%%%%%%%% Bar 3-4 %%%%%%%%%%
+5
+
+LP:
+\finger \markup "≡"
+:LP
+
+\upbow 4 3. q2 1 - - g[2] 3
+
+%%%%%%%%%% Bar 5-6 %%%%%%%%%%
+1' \f 1 6, 7, 3[ 1 \staccato 1 \staccato 2 \staccato ] 2 1 \downmordent
+
+%%%%%%%%%% Bar 7-8 %%%%%%%%%%
+1, \trill - - - 2 3 [2]g 4 4
+
+
+%%%%%%%%%% Bar 9-10 %%%%%%%%%%
+
+1 
+6, 6,
+LP:
+^\markup \pad-markup #2 ↗
+:LP
+
+-
+
+2 - - -
