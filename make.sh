@@ -33,6 +33,6 @@ if [[ "$SCORE_NAME" == "make_all" ]]; then
 else
   $(make_score "$SCORE_NAME")
 
-  echo "Build completed."
-  #xdg-open "$SCRIPT_DIR/scores/$SCORE_NAME/$SCORE_NAME.pdf"
+  echo "Build completed. Open with:"
+  echo "xdg-open "$SCRIPT_DIR/scores/pdf/$SCORE_NAME.pdf""
 fi

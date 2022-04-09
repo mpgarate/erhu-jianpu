@@ -24,6 +24,9 @@ title=Example
 
 
 %%%%%%%%%% Bar 9 %%%%%%%%%%
+
+% pitch and slides
+
 1,
 LP:
 \finger "𝀈"
@@ -47,7 +50,7 @@ LP:
 
 %%%%%%%%%% Bar 10 %%%%%%%%%%
 2
-% Souyin 久
+% souyin 久
 LP:
 \finger 久
 :LP
@@ -64,6 +67,8 @@ LP:
 :LP
 
 %%%%%%%%%% Bar 11 %%%%%%%%%%
+
+% fingering
 
 1
 LP:
