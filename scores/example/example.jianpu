@@ -4,11 +4,6 @@
 %%% - http://lilypond.org/doc/v2.23/Documentation/notation/other
 %%% - https://jrgraphix.net/r/Unicode/1D100-1D1FF
 
-
-% ↗
-% ↘
-% Souyin 久
-
 title=Example
 1=D
 4/4
@@ -28,8 +23,7 @@ title=Example
 1, \trill - - - g[3] 2 3 [2]g 4 4
 
 
-%%%%%%%%%% Bar 9-10 %%%%%%%%%%
-
+%%%%%%%%%% Bar 9 %%%%%%%%%%
 1,
 LP:
 \finger "𝀈"
@@ -51,7 +45,9 @@ LP:
 \finger \markup \bold \large "𝁜"
 :LP
 
+%%%%%%%%%% Bar 10 %%%%%%%%%%
 2
+% Souyin 久
 LP:
 \finger 久
 :LP
@@ -67,44 +63,48 @@ LP:
 %-\markup { \pad-markup #2 "↗"}
 :LP
 
+%%%%%%%%%% Bar 11 %%%%%%%%%%
+
 1
 LP:
-\finger \markup "0"
+\finger "0"
 :LP
 
 2
 LP:
-\finger \markup "–"
+\finger "–"
 :LP
 
 3
 LP:
-\finger \markup "="
+\finger "="
 :LP
 
 4
 LP:
-\finger \markup "≡"
+\finger "≡"
 :LP
 
+
+%%%%%%%%%% Bar 12 %%%%%%%%%%
 5
 
 LP:
-\finger \markup "四"
+\finger "四"
 :LP
 
 6
 
 LP:
-\finger \markup "–"
+\finger "–"
 :LP
 
 7
 LP:
-\finger \markup "="
+\finger "="
 :LP
 
 1,
 LP:
-\finger \markup "≡"
+\finger "≡"
 :LP
