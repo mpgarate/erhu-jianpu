@@ -653,6 +653,10 @@ def getLY(score):
                     out.append(r"\transpose c "+transposeTo+r" { \key c \major ") # so that MIDI or Western pitches are correct
                     inTranspose = 1
                 else: out.append(r'\mark \markup{%s}' % word.replace("b",r"\flat").replace("#",r"\sharp"))
+            elif word.startswith("Fr="):
+              finger = str(word.split("=")[1])
+              finger = {"1": "–", "2": "=", "3": "≡", "4": "四"}.get(finger, finger)
+              out.append(r'\finger "%s"' % finger)
             elif '/' in word: # time signature
                 if ',' in word: # anacrusis
                     word,anac = word.split(",",1)
