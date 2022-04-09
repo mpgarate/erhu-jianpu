@@ -3,408 +3,131 @@ title=Besame Mucho
 4/4
 
 %%%%%%%%%% Bar 1-2 %%%%%%%%%%
-6,
-LP:
-\finger "↗"
-:LP
-
-q6,
-
-q6, ~ 6, ( - 6, ) - 3[ 6, 7, 1
-LP: \finger "–"
-:LP
-
-]
+6,Fr=↗ q6, q6, ( 6, ) ( - 
+6, ) - 3[ 6, 7, 1 Fr=1 ]
 
 %%%%%%%%%% Bar 3-4 %%%%%%%%%%
 
-3
-LP:
-\finger "≡"
-\finger "↗"
-:LP
-
-- 2 ( - 2 ) - - -
-
+3 Fr=3 Fr=↗ - 2 ( - 
+2 ) - - -
 
 %%%%%%%%%% Bar 5-6 %%%%%%%%%%
 
 3[ 2 2 2 ] 3[ 3 3 3 ]
 
-3[ 4
-LP: \finger "四"
-:LP
-4 4 ]
+3[ 4 Fr=4 4 4 ]
 
-3[ #5
-
-LP: \finger "–"
-:LP
-
-6
-LP: \finger "="
-:LP
-
-7
-LP: \finger "≡"
-:LP
-
-]
+3[ #5 Fr=1 6 Fr=2 7 Fr=3 ]
 
 %%%%%%%%%% Bar 7-8 %%%%%%%%%%
 
-3
-LP: \finger "="
-:LP
-( - - - 3 ) - - 3
-
+3 Fr=2 ( - - - 3 ) - - 3
 
 %%%%%%%%%% Bar 9-10 %%%%%%%%%%
 
-6 ( - 6 - 6 ) - 5
-
-LP: \finger "–"
-:LP
-
-4
-
-LP: \finger "四"
-:LP
+6 ( - 6 - 6 ) - 5 Fr=1 4 Fr=4
 
 %%%%%%%%%% Bar 11-12 %%%%%%%%%%
 
-3
-
-LP: \finger "≡"
-:LP
-
-- 2 ( - 2 ) - - 0
+3 Fr=3 - 2 ( - 2 ) - - 0
 
 %%%%%%%%%% Bar 13-14 %%%%%%%%%%
 
-3[ 6
-
-LP: \finger "="
-:LP
-
-3
-
-LP: \finger "≡"
-:LP
-
-1
-LP:
-\finger "–"
-\prall
-:LP
-]
-
-3[ 3
-LP: \finger "≡"
-:LP
-
-1
-LP:
-\finger "–"
-:LP
-\prall 6,
-LP: \finger "–"
-:LP
-
-] 3[ 1
-
-LP: \finger "≡"
-:LP
-
-7, 6, ] 3[ 7,
-LP: \finger "="
-:LP
-6,
-LP: \finger "–"
-:LP
-#5,
-LP: \finger "–"
-:LP
-]
+3[ 6 Fr=2 3 Fr=3 1 Fr=1 \prall ]
+3[ 3 Fr=3 1 Fr=1 \prall 6, Fr=1 ]
+3[ 1 Fr=3 7, 6, ]
+3[ 7, Fr=2 6, Fr=1 #5, Fr=1 ]
 
 %%%%%%%%%% Bar 15-16 %%%%%%%%%%
-6,
-
-LP: \finger "–"
-:LP
-
-( - - - 6, ) - - 0
+6, Fr=1 ( - - - 6, ) - - 0
 
 %%%%%%%%%% Bar 17-18 %%%%%%%%%%
 
-2
-
-LP:
-\finger "="
-\finger "↗"
-:LP
-
-q2 q2 3[ 2 1
-
-LP: \finger "–"
-:LP
-
-7,
-
-LP: \finger "–"
-:LP
-
-] 1
-
-LP: \finger "–"
-:LP
-
-q1 q1 3[ 1 7,
-
-LP: \finger "="
-:LP
-
-6,
-
-LP: \finger "–"
-:LP
-
-]
+2 Fr=2 Fr=↗ q2 q2 3[ 2 1 Fr=1 7, Fr=1 ]
+1 Fr=1 q1 q1 3[ 1 7, Fr=2 6, Fr=1 ]
 
 %%%%%%%%%% Bar 19-20 %%%%%%%%%%
-q7,
-
-LP: \finger "="
-:LP
-
-7,. q7, q7, q1
-
-LP: \finger "–"
-:LP
-
-q2
-
-LP: \finger "="
-:LP
-
-3
-LP: \finger "≡"
-:LP
-- - -
+q7, Fr=2 7,. q7, q7, q1 Fr=1 q2 Fr=2
+3 Fr=3 - - -
 
 %%%%%%%%%% Bar 21-22 %%%%%%%%%%
 
-2
-
-LP: \finger "="
-:LP
-
-q2 q2 3[ 2 1
-
-LP: \finger "–"
-:LP
-
-7,
-
-LP: \finger "–"
-:LP
-
-] 1
-
-LP: \finger "–"
-:LP
-
-q1 q1 3[ 1 7,
-
-LP: \finger "="
-:LP
-
-6,
-
-LP: \finger "–"
-:LP
-
-]
+2 Fr=2 q2 q2 3[ 2 1 Fr=1 7, Fr=1 ]
+1 Fr=1 q1 q1 3[ 1 7, Fr=2 6, Fr=1 ]
 
 %%%%%%%%%% Bar 23-24 %%%%%%%%%%
-3[ 7, 7, 7 ] 3[ 7 1
-
-LP: \finger "–"
-:LP
-
-2
-LP: \finger "="
-:LP
-]
-
-7,
-LP: \finger "="
-:LP
-- - -
+3[ 7, 7, 7 ] 3[ 7 1 Fr=1 2 Fr=2 ]
+7, Fr=2 - - -
 
 %%%%%%%%%% Bar 25-26 %%%%%%%%%%
+
 % Same as bars 1-2
-6,
-LP:
-\finger "↗"
-:LP
-
-q6,
-
-q6, ~ 6, ( - 6, ) - 3[ 6, 7, 1
-LP: \finger "–"
-:LP
-
-]
+6,Fr=↗ q6, q6, ( 6, ) ( - 
+6, ) - 3[ 6, 7, 1 Fr=1 ]
 
 %%%%%%%%%% Bar 27-28 %%%%%%%%%%
 % Same as bars 3-4
 
-3
-LP:
-\finger "≡"
-\finger "↗"
-:LP
-
-- 2 ( - 2 ) - - -
+3 Fr=3 Fr=↗ - 2 ( - 
+2 ) - - -
 
 %%%%%%%%%% Bar 29-30 %%%%%%%%%%
 % Same as bars 5-6
 
 3[ 2 2 2 ] 3[ 3 3 3 ]
 
-3[ 4
-LP: \finger "四"
-:LP
-4 4 ]
+3[ 4 Fr=4 4 4 ]
 
-3[ #5
-
-LP: \finger "–"
-:LP
-
-6
-LP: \finger "="
-:LP
-
-7
-LP: \finger "≡"
-:LP
-
-]
+3[ #5 Fr=1 6 Fr=2 7 Fr=3 ]
 
 %%%%%%%%%% Bar 31-32 %%%%%%%%%%
-'3
-LP: \finger "≡"
-:LP
+'3 Fr=3
 
 ( - - - '3 ) - - '3
 
 %%%%%%%%%% Bar 33-34 %%%%%%%%%%
-6
-LP: \finger "="
-:LP
-
-- 6 - 6 - 5
-LP: \finger "–"
-:LP
-
-4
-LP: \finger "四"
-:LP
+6 Fr=2 - 6 -
+6 - 5 Fr=1 4 Fr=4
 
 %%%%%%%%%% Bar 35-36 %%%%%%%%%%
 
-3
-
-LP: \finger "≡"
-:LP
-
-- 2
-LP: \finger "="
-:LP
-
-( - 2 ) - - 0
+3 Fr=3 - 2 Fr=2 ( - 2 ) - - 0
 
 %%%%%%%%%% Bar 37-38 %%%%%%%%%%
 % Same as Bar 13-14
 
-3[ 6
-
-LP: \finger "="
-:LP
-
-3
-
-LP: \finger "≡"
-:LP
-
-1
-LP:
-\finger "–"
-\prall
-:LP
-]
-
-3[ 3
-LP: \finger "≡"
-:LP
-
-1
-LP:
-\finger "–"
-:LP
-\prall 6,
-LP: \finger "–"
-:LP
-
-] 3[ 1
-
-LP: \finger "≡"
-:LP
-
-7, 6, ] 3[ 7,
-LP: \finger "="
-:LP
-6,
-LP: \finger "–"
-:LP
-#5,
-LP: \finger "–"
-:LP
-]
+3[ 6 Fr=2 3 Fr=3 1 Fr=1 \prall ]
+3[ 3 Fr=3 1 Fr=1 \prall 6, Fr=1 ]
+3[ 1 Fr=3 7, 6, ]
+3[ 7, Fr=2 6, Fr=1 #5, Fr=1 ]
 
 %%%%%%%%%% Bar 39-40 %%%%%%%%%%
 % Same as Bar 15-16
-6,
-
-LP: \finger "–"
-:LP
-
-( - - - 6, ) - - 0
-
+6, Fr=1 ( - - - 6, ) - - 0
 
 %%%%%%%%%% Bar 41-42 %%%%%%%%%%
 3[ #2 Fr=1 3 Fr=2 4 Fr=1 ] 3[ #4 Fr=1 5 #5 ]
 6 Fr=2 - - -
-%%%%%%%%%% Bar 43-44 %%%%%%%%%%
 
+%%%%%%%%%% Bar 43-44 %%%%%%%%%%
 3[ 6 5 4 ] 3 2
 
 2 - - -
-%%%%%%%%%% Bar 45-46 %%%%%%%%%%
 
+%%%%%%%%%% Bar 45-46 %%%%%%%%%%
 3[ 6 Fr=2 3 Fr=3 1 Fr=1 \prall ]
 3[ 3 Fr=3 1 Fr=1 \prall 6, Fr=1 ]
 
 3[ 1 7, 6 ] 3[ 7 6 #5 ]
+
 %%%%%%%%%% Bar 47-48 %%%%%%%%%%
 6, Fr=1 - - -
 3[ 6 3 1 \prall ] 3[ 3 1 \prall 6, ]
+
 %%%%%%%%%% Bar 49-50 %%%%%%%%%%
 1 7, ( - - 7, ) - - -
 %%%%%%%%%% Bar 51-54 %%%%%%%%%%
 7, Fr=2 2 Fr=2 4 Fr=4 #5 Fr=1 \fermata
 
-6 Fr=2 (- - - 6 ) ( - - - 6 ) - - -
+6 Fr=2 ( - - - 6 ) ( - - - 6 ) - - -
 \p
