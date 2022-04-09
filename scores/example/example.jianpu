@@ -2,17 +2,15 @@
 %%% - https://lilypond.org/doc/v2.22/Documentation/notation/list-of-articulations
 %%% - https://lilypond.org/doc/v2.21/Documentation/snippets/expressive-marks
 %%% - http://lilypond.org/doc/v2.23/Documentation/notation/other
+%%% - https://jrgraphix.net/r/Unicode/1D100-1D1FF
 
-% Allows for using TextScripts inside the staff to insert symbols like:
+
 % ↗
 % ↘
-
-LP:
-  \override TextScript.extra-offset = #'(-3 . -7)
-:LP
+% Souyin 久
 
 title=Example
-1=F
+1=D
 4/4
 
 %%%%%%%%%% Bar 1-2 %%%%%%%%%%
@@ -21,27 +19,92 @@ title=Example
 %%%%%%%%%% Bar 3-4 %%%%%%%%%%
 5
 
-LP:
-\finger \markup "≡"
-:LP
-
-\upbow 4 3. q2 1 - - g[2] 3
+\upbow 4 3. q2 1 - - 3
 
 %%%%%%%%%% Bar 5-6 %%%%%%%%%%
 1' \f 1 6, 7, 3[ 1 \staccato 1 \staccato 2 \staccato ] 2 1 \downmordent
 
 %%%%%%%%%% Bar 7-8 %%%%%%%%%%
-1, \trill - - - 2 3 [2]g 4 4
+1, \trill - - - g[3] 2 3 [2]g 4 4
 
 
 %%%%%%%%%% Bar 9-10 %%%%%%%%%%
 
-1 
-6, 6,
+1,
 LP:
-^\markup \pad-markup #2 ↗
+\finger "𝀈"
 :LP
 
--
+2,
 
-2 - - -
+LP:
+\finger "↗"
+:LP
+
+3
+LP:
+\finger "↘"
+:LP
+
+4
+LP:
+\finger \markup \bold \large "𝁜"
+:LP
+
+2
+LP:
+\finger 久
+:LP
+- 3
+LP:
+\finger ⤻
+:LP
+ -
+
+LP:
+%\skip 0
+%\once \override TextScript.extra-offset = #'(-3.5 . 5.5)
+%-\markup { \pad-markup #2 "↗"}
+:LP
+
+1
+LP:
+\finger \markup "0"
+:LP
+
+2
+LP:
+\finger \markup "–"
+:LP
+
+3
+LP:
+\finger \markup "="
+:LP
+
+4
+LP:
+\finger \markup "≡"
+:LP
+
+5
+
+LP:
+\finger \markup "四"
+:LP
+
+6
+
+LP:
+\finger \markup "–"
+:LP
+
+7
+LP:
+\finger \markup "="
+:LP
+
+1,
+LP:
+\finger \markup "≡"
+:LP
