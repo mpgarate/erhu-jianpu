@@ -10,9 +10,8 @@ LP:
 
 q6,
 
-q6, ~ 6, ( - 6, ) - 3[ 6, 7, 1 
-LP:
-\finger "–"
+q6, ~ 6, ( - 6, ) - 3[ 6, 7, 1
+LP: \finger "–"
 :LP
 
 ]
@@ -24,7 +23,7 @@ LP:
 \finger "≡"
 \finger "↗"
 :LP
-  
+
 - 2 ( - 2 ) - - -
 
 
@@ -33,25 +32,21 @@ LP:
 3[ 2 2 2 ] 3[ 3 3 3 ]
 
 3[ 4
-LP:
-\finger "四"
+LP: \finger "四"
 :LP
 4 4 ]
 
-3[ #5 
+3[ #5
 
-LP:
-\finger "–"
+LP: \finger "–"
 :LP
 
 6
-LP:
-\finger "="
+LP: \finger "="
 :LP
 
 7
-LP:
-\finger "≡"
+LP: \finger "≡"
 :LP
 
 ]
@@ -59,8 +54,7 @@ LP:
 %%%%%%%%%% Bar 7-8 %%%%%%%%%%
 
 3
-LP:
-\finger "="
+LP: \finger "="
 :LP
 ( - - - 3 ) - - 3
 
@@ -69,22 +63,19 @@ LP:
 
 6 ( - 6 - 6 ) - 5
 
-LP:
-\finger "–"
+LP: \finger "–"
 :LP
 
 4
 
-LP:
-\finger "四"
+LP: \finger "四"
 :LP
 
 %%%%%%%%%% Bar 11-12 %%%%%%%%%%
 
 3
 
-LP:
-\finger "≡"
+LP: \finger "≡"
 :LP
 
 - 2 ( - 2 ) - - 0
@@ -93,9 +84,67 @@ LP:
 
 3[ 6 3 1 \prall ]  3[ 3 1 \prall 6, ] 3[ 1 7, 6, ] 3[ 7, 6, #5, ]
 
-%%%%%%%%%% Bar 13-14 %%%%%%%%%%
-6, ( - - - 6, ) - - 0
+%%%%%%%%%% Bar 15-16 %%%%%%%%%%
+6,
 
-2 q2 q2 3[ 2 1 7, ] 1 q1 q1 3[ 1 7, 6, ] q7, 7,. q7, q7, q1 q2 3 - - -
+LP: \finger "–"
+:LP
 
-% ≣ ≡ = -
+( - - - 6, ) - - 0
+
+%%%%%%%%%% Bar 17-18 %%%%%%%%%%
+
+2
+
+LP:
+\finger "="
+\finger "↗"
+:LP
+
+q2 q2 3[ 2 1
+
+LP: \finger "–"
+:LP
+
+7,
+
+LP: \finger "–"
+:LP
+
+] 1
+
+LP: \finger "–"
+:LP
+
+q1 q1 3[ 1 7,
+
+LP: \finger "="
+:LP
+
+6,
+
+LP: \finger "–"
+:LP
+
+]
+
+%%%%%%%%%% Bar 19-20 %%%%%%%%%%
+q7,
+
+LP: \finger "="
+:LP
+
+7,. q7, q7, q1
+
+LP: \finger "–"
+:LP
+
+q2
+
+LP: \finger "="
+:LP
+
+3
+LP: \finger "≡"
+:LP
+- - -
