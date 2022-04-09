@@ -11,17 +11,24 @@ make_score() {
   set -euxo pipefail
 
   score_name=$1
-  score_dir="$SCRIPT_DIR/scores/$score_name"
+  score_path="$SCRIPT_DIR/scores/jianpu/$score_name.jianpu"
+  scratch_path="$SCRIPT_DIR/scores/scratch"
 
-  "$SCRIPT_DIR/jianpu-ly.py" "$score_dir/$score_name.jianpu" \
-    > "$score_dir/$score_name.ly"
+  rm -rf "$scratch_path"
+  mkdir -p "$scratch_path"
 
-  lilypond -o "$score_dir/$score_name" "$score_dir/$score_name.ly"
+  "$SCRIPT_DIR/jianpu-ly.py" "$score_path" > "$scratch_path/$score_name.ly"
+
+  lilypond -o "$scratch_path/$score_name" "$scratch_path/$score_name.ly"
+
+  cp "$scratch_path/$score_name.pdf" "$SCRIPT_DIR/scores/pdf"
+  rm -rf "$scratch_path"
 }
 
 if [[ "$SCORE_NAME" == "make_all" ]]; then
-  for f in scores/*/ ; do
-    $(make_score "$(basename "$f")")
+  for f in scores/jianpu/* ; do
+    score_name="$(echo "$(basename "$f")" | cut -d '.' -f 1)"
+    $(make_score "$score_name")
   done
 else
   $(make_score "$SCORE_NAME")
