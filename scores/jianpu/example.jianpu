@@ -17,6 +17,7 @@ title=Example
 \upbow 4 3. q2 1 - - 3
 
 %%%%%%%%%% Bar 5-6 %%%%%%%%%%
+% up and down octaves
 1' \f 1 6, 7, 3[ 1 \staccato 1 \staccato 2 \staccato ] 2 1 \downmordent
 
 %%%%%%%%%% Bar 7-8 %%%%%%%%%%
@@ -71,45 +72,37 @@ LP:
 % fingering
 
 1
-LP:
-\finger "0"
+LP: \finger "0"
 :LP
 
 2
-LP:
-\finger "–"
+LP: \finger "–"
 :LP
 
 3
-LP:
-\finger "="
+LP: \finger "="
 :LP
 
 4
-LP:
-\finger "≡"
+LP: \finger "≡"
 :LP
 
 
 %%%%%%%%%% Bar 12 %%%%%%%%%%
 5
 
-LP:
-\finger "四"
+LP: \finger "四"
 :LP
 
 6
 
-LP:
-\finger "–"
+LP: \finger "–"
 :LP
 
 7
-LP:
-\finger "="
+LP: \finger "="
 :LP
 
 1,
-LP:
-\finger "≡"
+LP: \finger "≡"
 :LP
