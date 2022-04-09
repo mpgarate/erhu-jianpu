@@ -9,6 +9,7 @@ title=Example
 4/4
 
 %%%%%%%%%% Bar 1-2 %%%%%%%%%%
+% dynamics, bowing
 1 \downbow \mf ( 2 3 4 5 ) - - -
 
 %%%%%%%%%% Bar 3-4 %%%%%%%%%%
