@@ -3,41 +3,29 @@ title=Dance of the Yao People
 2/4
 4=50
 
+% NOTE: the bowing in this is not quite right yet.
+
 %%%%%%%%%% Bar 1-4 %%%%%%%%%%
 
-6, 3 Fr=1 6, q3 Fr=1 q3
+q6 Fr=1 \downbow ( q3' Fr=3 ) q3' ( q6 )
 
-6, q3 q3 6, q3 q3
+2'. Fr=2 ( q1' Fr=1 )
+
+q7. Fr=1 ( s2' Fr=3 ) q1' Fr=3 ( q7 Fr=2 )
+
+q6. \upbow ( s5 ) ( 3 Fr=2 \downbow )
 
 %%%%%%%%%% Bar 5-8 %%%%%%%%%%
 
-q1. Fr=2 s7, q1 q2
-
-q3. s2 q3. s2
-
-q2. s1 q1. s7,
-
-6 Fr=0 6, Fr=↗
-
-%%%%%%%%%% Bar 9-12 %%%%%%%%%%
-
-q6 Fr=0 \downbow ( q3' Fr=3 ) q3' ( q6 ) 
-
-2'. Fr=2 ( q1' Fr=1 ) q7. Fr=1 ( s2' Fr=3 ) q1' Fr=3 ( q7 Fr=2 )
-
-%%%%%%%%%% Bar 13-16 %%%%%%%%%%
-
-q6. \upbow ( s5 \downbow) ( 3 Fr=2 )
-
-q6. Fr=1 \downbow ( s7 Fr=2 ) q1' Fr=1 ( q2' Fr=2 )
+q6. Fr=1 \upbow ( s7 Fr=2 ) q1' Fr=1 ( q2' Fr=2 )
 
 q3'. Fr=3 \downbow ( s5' Fr=4 ) q3' ( q2' Fr=2 )
 
 q1' \downbow s2' Fr=2 \upbow ( s3' Fr=3 ) q2' Fr=2 \downmordent \downbow ( q1' )
 
-%%%%%%%%%% Bar 17-20 %%%%%%%%%%
+%%%%%%%%%% Bar 9-12 %%%%%%%%%%
 
-6 Fr=2 -
+6 Fr=1 -
 
 q6 Fr=1 \downbow \mf ( q3' Fr=3 ) q3' ( q6 Fr=1 )
 
@@ -47,7 +35,7 @@ q7. \upbow ( s2' Fr=2 ) q1' Fr=1 ( q7 Fr=2 )
 
 q6. \upbow ( s5 3 Fr=2 \downbow )
 
-%%%%%%%%%% Bar 21-24 %%%%%%%%%%
+%%%%%%%%%% Bar 13-16 %%%%%%%%%%
 
 q6. Fr=1 \downbow ( s7 ) q1' Fr=1 ( q2' Fr=2 )
 
@@ -57,27 +45,27 @@ q1' Fr=1 \downbow s2' \upbow ( s3' ) q2' ( q1' )
 
 6 Fr=1 \upbow -
 
-%%%%%%%%%% Bar 25-28 %%%%%%%%%%
+%%%%%%%%%% Bar 17-20 %%%%%%%%%%
 
-q5. Fr=2 \downbow ( s2 Fr=1 ) q1' Fr=3 ( q6 )
+q5. Fr=0 \downbow ( s6 Fr=1 ) q1' Fr=3 ( q6 )
 
 q1' Fr=1 \downbow s1' ( s2' Fr=2 ) q3' Fr=3 ( q5' Fr=4 )
 
 q3' Fr=3 \upbow s3' ( s5' Fr=4 ) q2' Fr=2 \upbow ( s3' Fr=3 s5' Fr=4 )
 
-3' Fr=3 \downbow \mf ( 5' Fr=4 )
+3'. Fr=3 \downbow \mf ( q5' Fr=4 )
 
-%%%%%%%%%% Bar 29-32 %%%%%%%%%%
+%%%%%%%%%% Bar 21-24 %%%%%%%%%%
 
 q6 Fr=1 \upbow \mp ( q3' Fr=3 ) q6 Fr=1 ( q3' Fr=3 )
 
 q6 Fr=1 \upbow ( q2' Fr=2 ) q6 Fr=1 ( q2' Fr=2 )
 
-q1' Fr=1 \upbow ( s2' s3' ) q2' \downbow ( q1' )
+q1' Fr=1 \upbow ( s2' s3' ) q2' \upbow ( q1' )
 
-6 Fr=1 \upbow -
+6 Fr=1 \downbow -
 
-%%%%%%%%%% Bar 33-35 %%%%%%%%%%
+%%%%%%%%%% Bar 25-27 %%%%%%%%%%
 
 q6 Fr=0 \downbow \mp q3' s2' s3' s2' s1'
 
