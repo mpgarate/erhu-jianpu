@@ -2,7 +2,7 @@
 # (can be run with either Python 2 or Python 3)
 
 # Jianpu (numbered musical notaion) for Lilypond
-# v1.56 (c) 2012-2022 Silas S. Brown
+# v1.592 (c) 2012-2022 Silas S. Brown
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -61,6 +61,8 @@ Repeat (with alternate endings): R{ 1 1 1 } A{ 2 | 3 }
 Short repeats (percent): R4{ 1 2 }
 Ties (like Lilypond's, if you don't want dashes): 1 ~ 1
 Slurs (like Lilypond's): 1 ( 2 )
+Erhu fingering (applies to previous note): Fr=0 Fr=4
+Erhu symbol (applies to previous note): souyin harmonic up down bend tilde
 Dynamics (applies to previous note): \p \mp \f
 Other 1-word Lilypond \ commands: \fermata \> \! \( \) etc
 Other Lilypond code: LP: (block of code) :LP (each delimeter at start of its line)
@@ -79,38 +81,60 @@ def asUnicode(l):
 
 def all_scores_start(staff_size = 20):
     # staff_size is the 5-line size in points; jianpu is smaller
-    return r"""\version "2.18.0"
-#(set-global-staff-size %d)
+    r = r"""\version "2.18.0"
+#(set-global-staff-size %d)""" % staff_size
+    r += r"""
 
-%% un-comment the next line to remove Lilypond tagline:
-%% \header { tagline="" }
+% un-comment the next line to remove Lilypond tagline:
+% \header { tagline="" }
 
 \pointAndClickOff
 
 \paper {
   print-all-headers = ##t %% allow per-score headers
 
-  %% un-comment the next line for A5:
-  %% #(set-default-paper-size "a5" )
+  % un-comment the next line for A5:
+  % #(set-default-paper-size "a5" )
 
-  %% un-comment the next line for no page numbers:
-  %% print-page-number = ##f
+  % un-comment the next line for no page numbers:
+  % print-page-number = ##f
 
-  %% un-comment the next 3 lines for a binding edge:
-  %% two-sided = ##t
-  %% inner-margin = 20\mm
-  %% outer-margin = 10\mm
+  % un-comment the next 3 lines for a binding edge:
+  % two-sided = ##t
+  % inner-margin = 20\mm
+  % outer-margin = 10\mm
 
-  %% un-comment the next line for a more space-saving header layout:
-  %% scoreTitleMarkup = \markup { \center-column { \fill-line { \magnify #1.5 { \bold { \fromproperty #'header:dedication } } \magnify #1.5 { \bold { \fromproperty #'header:title } } \fromproperty #'header:composer } \fill-line { \fromproperty #'header:instrument \fromproperty #'header:subtitle \smaller{\fromproperty #'header:subsubtitle } } } }
-}
-""" % staff_size
+  % un-comment the next line for a more space-saving header layout:
+  % scoreTitleMarkup = \markup { \center-column { \fill-line { \magnify #1.5 { \bold { \fromproperty #'header:dedication } } \magnify #1.5 { \bold { \fromproperty #'header:title } } \fromproperty #'header:composer } \fill-line { \fromproperty #'header:instrument \fromproperty #'header:subtitle \smaller{\fromproperty #'header:subsubtitle } } } }
+"""
+    if os.path.exists("/Library/Fonts/Arial Unicode.ttf"): r += r"""
+  % As jianpu-ly was run on a Mac, we include a Mac fonts workaround.
+  % The Mac version of Lilypond 2.18 used Arial Unicode MS as a
+  % fallback even in the Serif font, but 2.20 drops this in Serif
+  % (using it only in Sans), which means any Serif text (titles,
+  % lyrics etc) that includes Chinese will likely fall back to
+  % Japanese fonts which don't support all Simplified hanzi.
+  % This brings back 2.18's behaviour on 2.20+:
+  #(define fonts
+    (set-global-fonts
+     #:roman "Times New Roman,Arial Unicode MS"
+     #:factor (/ staff-height pt 20)
+    ))
+"""
+    if has_lyrics: r += r"""
+  % Might need to enforce a minimum spacing between systems, especially if lyrics are below the last staff in a system and numbers are on the top of the next
+  system-system-spacing = #'((basic-distance . 7) (padding . 5) (stretchability . 1e7))
+  score-markup-spacing = #'((basic-distance . 9) (padding . 5) (stretchability . 1e7))
+  score-system-spacing = #'((basic-distance . 9) (padding . 5) (stretchability . 1e7))
+  markup-system-spacing = #'((basic-distance . 2) (padding . 2) (stretchability . 0))
+"""
+    return r+"}\n"
 
 def score_start():
     ret = "\\score {\n"
     if midi: ret += "\\unfoldRepeats\n"
     ret += r"<< "
-    if not notehead_markup.noBarNums and not midi: ret += ("\\override Score.BarNumber #'break-visibility = #end-of-line-invisible\n\\override Score.BarNumber #'Y-offset = -1\n\\set Score.barNumberVisibility = #(every-nth-bar-number-visible %d)" % bar_number_every)
+    if not notehead_markup.noBarNums and not midi: ret += ("\\override Score.BarNumber #'break-visibility = #center-visible\n\\override Score.BarNumber #'Y-offset = -1\n\\set Score.barNumberVisibility = #(every-nth-bar-number-visible %d)" % bar_number_every)
     return ret
 bar_number_every = 5 # TODO customise?  (anyway don't leave it numbering at start of system, doesn't work well in jianpu+lyrics)
 
@@ -156,7 +180,7 @@ def jianpu_voice_start(voiceName="tmp"):
     \override TupletBracket #'bracket-visibility = ##t""" % stemLenFrac)
     r += "\n"+r"""\set Voice.chordChanges = ##t %% 2.19 bug workaround""" # LilyPond 2.19.82: \applyOutput docs say "called for every layout object found in the context Context at the current time step" but 2.19.x breaks this by calling it for ALL contexts in the current time step, hence breaking our WithStaff by applying our jianpu numbers to the 5-line staff too.  Obvious workaround is to make our function check that the context it's called with matches our jianpu voice, but I'm not sure how to do this other than by setting a property that's not otherwise used, which we can test for in the function.  So I'm 'commandeering' the "chordChanges" property (there since at least 2.15 and used by Lilypond only when it's in chord mode, which we don't use, and if someone adds a chord-mode staff then it won't print noteheads anyway): we will substitute jianpu numbers for noteheads only if chordChanges = #t.
     return r+"\n"
-def jianpu_staff_start():
+def jianpu_staff_start(withStaff=False):
     # (we add "BEGIN JIANPU STAFF" and "END JIANPU STAFF" comments to make it easier to copy/paste into other Lilypond files)
     if not_angka: voiceName="notAngka"
     else: voiceName="jianpu"
@@ -167,9 +191,13 @@ def jianpu_staff_start():
 %% === BEGIN JIANPU STAFF ===
     \new RhythmicStaff \with {
     \consists "Accidental_engraver" """
+    if withStaff: r+=r"""
+   %% Limit space between Jianpu and corresponding-Western staff
+   \override VerticalAxisGroup.staff-staff-spacing = #'((minimum-distance . 7) (basic-distance . 7) (stretchability . 0))
+""" # (whether this is needed or not depends on Lilypond version; 2.22 puts more space than 2.18,2.20.  Must set higher than 5, which sometimes gets collisions between beams in 2.20)
     r+=r"""
     %% Get rid of the stave but not the barlines:
-    \override StaffSymbol #'line-count = #0 %% tested in 2.15.40, 2.16.2, 2.18.0, 2.18.2 and 2.20.0
+    \override StaffSymbol #'line-count = #0 %% tested in 2.15.40, 2.16.2, 2.18.0, 2.18.2, 2.20.0 and 2.22.2
     \override BarLine #'bar-extent = #'(-2 . 2) %% LilyPond 2.18: please make barlines as high as the time signature even though we're on a RhythmicStaff (2.16 and 2.15 don't need this although its presence doesn't hurt; Issue 3685 seems to indicate they'll fix it post-2.18)
     }
     { """+jianpu_voice_start(voiceName)+r"""
@@ -189,7 +217,9 @@ def midi_staff_end(): return "} }\n% === END MIDI STAFF ===\n"
 def western_staff_start(voiceName="5line"):
     return r"""
 %% === BEGIN 5-LINE STAFF ===
-    \new Staff { \new Voice="%s" {
+    \new Staff {
+    \override Score.SystemStartBar.collapse-height = #11 %% (needed on 2.22)
+    \new Voice="%s" {
     #(set-accidental-style 'modern-cautionary)
     \override Staff.TimeSignature #'style = #'numbered
     \set Voice.chordChanges = ##f %% for 2.19.82 bug workaround
@@ -204,11 +234,15 @@ def lyrics_end(): return "} }"
 
 dashes_as_ties = True # Implement dash (-) continuations as invisible ties rather than rests; sometimes works better in awkward beaming situations
 use_rest_hack = True # Implement short rests as notes (and if there are lyrics, creates temporary voices so the lyrics miss them); sometimes works better for beaming (at least in 2.15, 2.16 and 2.18)
-if '--noRestHack' in sys.argv: # TODO: document
+if __name__=="__main__" and '--noRestHack' in sys.argv: # TODO: document
     use_rest_hack=False ; sys.argv.remove('--noRestHack')
 assert not (use_rest_hack and not dashes_as_ties), "This combination has not been tested"
 
-def errExit(msg): sys.stderr.write("ERROR: "+msg+"\n"),sys.exit(1)
+def errExit(msg):
+    if __name__=="__main__":
+        sys.stderr.write("Error: "+msg+"\n")
+        sys.exit(1)
+    else: raise Exception(msg)
 
 placeholders = {
     # for accidentals and word-fitting to work
@@ -427,7 +461,8 @@ def parseNote(word):
     word = word.replace("8","1'").replace("9","2'")
     if type(u"")==type(""): word = word.replace(u"\u2019","'")
     else: word=word.replace(u"\u2019".encode('utf-8'),"'")
-    figures = ''.join(re.findall('[01234567-]',word))
+    if not re.match("[0-7.,'qsdh\\#b-]+$",word): figures = None # unrecognised stuff in it: flag as error, rather than ignoring and possibly getting a puzzling barsync fail
+    else: figures = ''.join(re.findall('[01234567-]',word))
     if "." in word: dot="."
     else: dot=""
     if "q" in word: nBeams=1
@@ -446,7 +481,7 @@ def parseNote(word):
             accidental = acc ; break
     return figures,nBeams,dot,octave,accidental
 
-if "--html" in sys.argv or "--markdown" in sys.argv:
+def write_docs():
     # Write an HTML or Markdown version of the doc string
     def htmlify(l):
         if "--html" in sys.argv:
@@ -475,24 +510,30 @@ if "--html" in sys.argv or "--markdown" in sys.argv:
             inTable=justStarted=0
             print (htmlify(line))
     if inTable and "--html" in sys.argv: print ("</table>")
-    raise SystemExit
-inDat = []
-for f in sys.argv[1:]:
+
+def get_input():
+  inDat = []
+  for f in sys.argv[1:]:
     try:
         try: inDat.append(open(f,encoding="utf-8").read()) # Python 3: try UTF-8 first
         except: inDat.append(open(f).read()) # Python 2, or Python 3 with locale-default encoding in case it's not UTF-8
     except: errExit("Unable to read file "+f)
-if type("")==type(u""): # Python 3: please use UTF-8 for Lilypond, even if the system locale says something else
+  if type("")==type(u""): # Python 3: please use UTF-8 for Lilypond, even if the system locale says something else
     import codecs
     stdin=codecs.getreader("utf-8")(sys.stdin.buffer)
     stdout=codecs.getwriter("utf-8")(sys.stdout.buffer)
     old_stdout, sys.stdout = sys.stdout, stdout # for print() (and keep a reference to the old one in case of overzealous gc)
-else: stdin = sys.stdin
-if not inDat:
+  else: stdin = sys.stdin
+  if not inDat:
     if sys.stdin.isatty():
         sys.stderr.write(__doc__)
         raise SystemExit
     inDat=[stdin.read()]
+  for i in xrange(len(inDat)):
+    if inDat[i].startswith('\xef\xbb\xbf'):
+      inDat[i] = inDat[i][3:]
+    if inDat[i].startswith(r'\version'): errExit("jianpu-ly does not READ Lilypond code.\nPlease see the instructions.")
+  return " NextScore ".join(inDat)
 
 def fix_fullwidth(t):
     if type(u"")==type(""): utext = t
@@ -506,17 +547,6 @@ def fix_fullwidth(t):
     utext = u"".join(r)
     if type(u"")==type(""): return utext
     else: return utext.encode('utf-8')
-
-def intor0(w):
-    try: return int(w)
-    except: return 0
-
-for i in xrange(len(inDat)):
-    if inDat[i].startswith('\xef\xbb\xbf'):
-        inDat[i] = inDat[i][3:]
-    if inDat[i].startswith(r'\version'): errExit("jianpu-ly does not READ Lilypond code.\nPlease see the instructions.")
-
-inDat = " NextScore ".join(inDat)
 
 def graceNotes_markup(notes,isAfter):
     if isAfter: cmd = "jianpu-grace-after"
@@ -549,6 +579,7 @@ def graceNotes_markup(notes,isAfter):
                 r.append(aftrNext) ; aftrNext = None
     return r"^\tweak outside-staff-priority ##f ^\tweak avoid-slur #'inside ^\markup \%s { \line { %s } }" % (cmd,' '.join(r))
 def grace_octave_fix(notes):
+    notes = notes.replace("8","'1").replace("9","'2")
     if notes.endswith(',,') or notes.endswith("''"):
         # oops, should write this BEFORE the affected note
         return notes[:-3]+notes[-2:]+notes[-3]
@@ -638,9 +669,10 @@ def getLY(score):
         headers[hName.strip()] = hValue.strip()
     else:
         for word in line.split():
+            if word in ["souyin","harmonic","up","down","bend","tilde"]: word="Fr="+word # (Fr= before these is optional)
             if word.startswith('%'): break # a comment
-            elif re.match("[1-8]+[.]*=[1-9][0-9]*",word): out.append(r'\tempo '+word) # TODO: reduce size a little?
-            elif re.match("[16]=[A-Ga-g]",word): #key
+            elif re.match("[1-468]+[.]*=[1-9][0-9]*$",word): out.append(r'\tempo '+word) # TODO: reduce size a little?
+            elif re.match("[16]=[A-Ga-g][#b]?$",word): #key
                 # Must use \transpose because \transposition doesn't always work.
                 # However, don't use \transpose if printing - it adds extra accidentals to the rhythm staff.
                 # So we have to do separate runs of \layout and \midi (hence the outer loop).
@@ -654,10 +686,22 @@ def getLY(score):
                     inTranspose = 1
                 else: out.append(r'\mark \markup{%s}' % word.replace("b",r"\flat").replace("#",r"\sharp"))
             elif word.startswith("Fr="):
-              finger = str(word.split("=")[1])
-              finger = {"1": "–", "2": "=", "3": "≡", "4": "四"}.get(finger, finger)
+              finger = word.split("=")[1]
+              finger = {
+                  "1": u"\u2013", # en-dash (I'd have gone for u"\u4e00" hanzi one, but perhaps this is more common in fonts)
+                  "2": u"=", # rather than u"\u4c8c" hanzi two
+                  "3": u"\u2261", # identical-to sign, rather than u"\u4e09" hanzi three
+                  "4": u"\u56db", # hanzi four
+                  "souyin": u"\u4e45", # jiu3
+                  "harmonic": u"\u25cb", # white circle: TODO: can we use Lilypond's ^\flageolet command (not in a \finger{}) which doesn't require a font with 25CB in it? or would that get wrong size? (can be tweaked)
+                  "up": u"\u2197", # NE arrow
+                  "down": u"\u2198", # SE arrow
+                  "bend": u"\u293b", # bottom arc anticlockwise arrow
+                  "tilde": u"\u223c", # full-width tilde.  Could also use U+1D008 "Byzantine musical symbol syrmatiki" but that (a) won't display on macOS (as of 12.6) and (b) needs special consideration for old versions of Python 2 on narrow Unicode builds
+                  }.get(finger, finger)
+              if not type("")==type(u""): finger = finger.encode('utf-8') # Python 2
               out.append(r'\finger "%s"' % finger)
-            elif '/' in word: # time signature
+            elif re.match("[1-9][0-9]*/[1-468]+(,[1-9][0-9]*[.]?)?$",word): # time signature
                 if ',' in word: # anacrusis
                     word,anac = word.split(",",1)
                 else: anac=""
@@ -697,7 +741,7 @@ def getLY(score):
             elif word=="R{":
                 repeatStack.append((1,0,0))
                 out.append(r'\repeat volta 2 {')
-            elif word.startswith("R") and word.endswith("{"):
+            elif re.match("R[1-9][0-9]*{$",word):
                 times = int(word[1:-1])
                 repeatStack.append((1,notehead_markup.barPos,times-1))
                 out.append(r'\repeat percent %d {' % times)
@@ -717,7 +761,7 @@ def getLY(score):
                 if not (repeatStack and repeatStack[-1][0]==2):
                     sys.stderr.write("| should be in an A{ .. } block (scoreNo=%d barNo=%d)\n" % (scoreNo,notehead_markup.barNo))
                 out.append("} {")
-            elif word.endswith('[') and intor0(word[:-1]):
+            elif re.match(r"[1-9][0-9]*\[$",word):
                 # tuplet start, e.g. 3[
                 fitIn = int(word[:-1])
                 i=2
@@ -729,7 +773,7 @@ def getLY(score):
             elif word==']': # tuplet end
                 out.append("}")
                 notehead_markup.tuplet = (1,1)
-            elif word.startswith("g[") and word.endswith("]"):
+            elif re.match(r"g\[[#b',1-9]+\]$",word):
                 if midi or western: out.append(r"\grace { " + gracenotes_western(word[2:-1]) + " }")
                 else:
                     aftrnext = graceNotes_markup(word[2:-1],0)
@@ -760,7 +804,7 @@ def getLY(score):
               (list (quote lineto) textWidth -0.3)
               (list (quote moveto) (* textWidth 0.5) -0.3)
               (list (quote curveto) (* textWidth 0.5) -1 (* textWidth 0.5) -1 textWidth -1)))))))))))) """)
-            elif word.startswith("[") and word.endswith("]g"):
+            elif re.match(r"\[[#b',1-9]+\]g$",word):
                 if midi or western: out[lastPtr] = r" \afterGrace { " + out[lastPtr] + " } { " + gracenotes_western(word[1:-2]) + " }"
                 else:
                     if not notehead_markup.withStaff:
@@ -813,8 +857,11 @@ def getLY(score):
                     if not_angka and "'" in octave: maxBeams=max(maxBeams,len(octave)*.8+nBeams)
                     else: maxBeams=max(maxBeams,nBeams)
                 else:
-                    msg = "Unrecognised command "+word+" in score "+str(scoreNo)
-                    if "xterm" in os.environ.get("TERM",""): msg += "\n"+re.sub(r"(\s|^)"+re.escape(word)+r"(?=\s|$)",lambda m:m.group()[:1]+"\x1b[4m"+m.group()[1:]+"\x1b[m",line)
+                    if len(word)>60: word=word[:50]+"..."
+                    msg = "Unrecognised command %s in score %d" % (word,scoreNo)
+                    if len(line)>600: line=line[:500]+"..."
+                    if not word in line: pass # above truncations caused problems
+                    elif "xterm" in os.environ.get("TERM",""): msg += "\n"+re.sub(r"(\s|^)"+re.escape(word)+r"(?=\s|$)",lambda m:m.group()[:1]+"\x1b[4m"+m.group()[1:]+"\x1b[m",line)
                     elif re.match('[ -~]*$',line): # all ASCII: we can underline the word with ^^s
                         msg += "\n"+line+"\n"+re.sub('[^^]',' ',re.sub(r"(\s|^)"+re.escape(word)+r"(?=\s|$)",lambda m:' '+'^'*(len(m.group())-1),line))
                     else: # don't try to underline the word (at least not without ANSI): don't know how the terminal will handle character widths
@@ -843,19 +890,25 @@ def getLY(score):
                out[i] += '\n'
            else: out[i]+=' '
    out = ''.join(out)
-   if western: # collapse tied notes into longer notes
-       out = re.sub(r"(?P<note>[^ ]*)4 +~ (?P=note)4 +~ (?P=note)4 +~ (?P=note)4",r"\g<1>1",out)
-       out = re.sub(r"(?P<note>[^ ]*)4 +~ (?P=note)4 +~ (?P=note)4",r"\g<1>2.",out)
-       out = re.sub(r"(?P<note>[^ ]*)4 +~ (?P=note)4",r"\g<1>2",out)
-       out = out.replace("r4 r4 r4 r4","r1").replace("r4 r4 r4","r2.").replace("r4 r4","r2")
+   if western: # collapse/combine tied notes into longer notes
+       for numNotes,dot,result in [
+               (4,r"\.","1."), # in 12/8, 4 dotted crotchets = dotted semibreve
+               (4,"","1"), # 4 crotchets = semibreve
+               (3,"","2."), # 3 crotchets = dotted minim
+               (2,r"\.","2."), # in 6/8, 2 dotted crotchets = dotted minim
+               (2,"","2")]: # 2 crotchets = minim
+           out = re.sub(" +~ ".join(["(?P<note>[^ ]*)4"+dot]+["(?P=note)4"+dot]*(numNotes-1)),r"\g<1>"+result,out).replace(" ".join(["r4"+dot]*numNotes),"r"+result)
        out = re.sub(r"(%\{ bar [0-9]*: %\} )r([^ ]* \\bar)",r"\g<1>R\g<2>",out)
        out = out.replace(r"\new RhythmicStaff \with {",r"\new RhythmicStaff \with { \override VerticalAxisGroup.default-staff-staff-spacing = #'((basic-distance . 6) (minimum-distance . 6) (stretchability . 0)) ") # don't let it hang too far up in the air
    if not_angka: out=out.replace("make-bold-markup","make-simple-markup")
    return out,maxBeams,lyrics,headers
 
-scoreNo = 0 # incr'd to 1 below
-western = False
-for score in re.split(r"\sNextScore\s"," "+inDat+" "):
+def process_input(inDat):
+ ret = []
+ global scoreNo, western, has_lyrics, midi, not_angka, maxBeams
+ scoreNo = 0 # incr'd to 1 below
+ western = False
+ for score in re.split(r"\sNextScore\s"," "+inDat+" "):
   if not score.strip(): continue
   scoreNo += 1
   wordSet = set(score.split())
@@ -864,14 +917,24 @@ for score in re.split(r"\sNextScore\s"," "+inDat+" "):
    not_angka = False # may be set by getLY
    out,maxBeams,lyrics,headers = getLY(score)
    if notehead_markup.withStaff and notehead_markup.separateTimesig: errExit("Use of both WithStaff and SeparateTimesig in the same piece is not yet implemented")
-   if scoreNo==1 and not midi: print (all_scores_start()) # not before here, so as not to confuse beginners who don't input a valid score 1
-   print (score_start())
+   if scoreNo==1 and not midi: ret.append(all_scores_start()) # not before here, so as not to confuse beginners who don't input a valid score 1
+   ret.append(score_start())
    if midi:
-       print (midi_staff_start()+" "+out+" "+midi_staff_end())
+       ret.append(midi_staff_start()+" "+out+" "+midi_staff_end())
    else:
-       print (jianpu_staff_start()+" "+out+" "+jianpu_staff_end())
+       ret.append(jianpu_staff_start(notehead_markup.withStaff)+" "+out+" "+jianpu_staff_end())
        if notehead_markup.withStaff:
-           western=True ; print (western_staff_start()+" "+getLY(score)[0]+" "+western_staff_end()) ; western = False
+           western=True ; ret.append(western_staff_start()+" "+getLY(score)[0]+" "+western_staff_end()) ; western = False
            lyrics = lyrics.replace(r'\lyricsto "jianpu"',r'\lyricsto "5line"')
-       if lyrics: print (lyrics)
-   print (score_end(**headers))
+       if lyrics: ret.append(lyrics)
+   ret.append(score_end(**headers))
+ return "".join(r+"\n" for r in ret)
+
+def main():
+    if "--html" in sys.argv or "--markdown" in sys.argv:
+        return write_docs()
+    inDat = get_input()
+    out = process_input(inDat) # <-- you can also call this if importing as a module
+    print (out)
+
+if __name__=="__main__": main()

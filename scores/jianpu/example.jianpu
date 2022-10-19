@@ -36,7 +36,7 @@ LP:
 
 %%%%%%%%%% Bar 10 %%%%%%%%%%
 % souyin 久
-2 Fr=久 - 3 Fr=⤻
+2 Fr=久 3 Fr=⤻ 1 Fr=○
 -
 
 %%%%%%%%%% Bar 11 %%%%%%%%%%
@@ -54,3 +54,9 @@ LP:
 
 % Crescendo
 3 \< - - - \!
+
+%%%%%%%%%% Bar 15-16 %%%%%%%%%%
+1 souyin 2 harmonic 3 up 4 down
+5 bend 6 tilde 1 Fr=1 2 Fr=2
+%%%%%%%%%% Bar 17-18 %%%%%%%%%%
+3 Fr=3 4 Fr=4 - -
