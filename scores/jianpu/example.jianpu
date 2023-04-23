@@ -18,7 +18,7 @@ title=Example
 \upbow 4 3. q2 1 - - 3
 
 %%%%%%%%%% Bar 5-6 %%%%%%%%%%
-% up and down octaves
+% up and down octaves, triplet
 1' \f 1 6, 7, 3[ 1 \staccato 1 \staccato 2 \staccato ] 2 1 \downmordent
 
 %%%%%%%%%% Bar 7-8 %%%%%%%%%%
