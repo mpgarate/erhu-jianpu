@@ -17,8 +17,8 @@ g[1] 2 - - 1q 0q
 0 - - 7,
 7, - 1 - 
 
-%NextScore
-%instrument=Verse 1
+NextScore
+instrument=Verse 1
 
 %%%%%%%%%% Bar 9-10 %%%%%%%%%%
 0 - - 6,
@@ -47,8 +47,10 @@ g[2] 3 - - -
 %%%%%%%%%% Bar 25-26 %%%%%%%%%%
 4s 3s 2s 3 - -s 3[ 0q 3q 5q ]
 
-%NextScore
-%instrument=Chorus
+NextScore
+instrument=Chorus
+
+\coda
 
 6q ( 7q 6q 5q ) 3q ( 5q 3q 2q )
 
@@ -88,8 +90,8 @@ g[2] 3. 2q ( 2 - )
 %%%%%%%%%% Bar 49-50 %%%%%%%%%%
 6, ) - - -
 
-%NextScore
-%instrument=Interlude
+NextScore
+instrument=Interlude
 g[2] 3 \p - - -
 %%%%%%%%%% Bar 51-52 %%%%%%%%%%
 0 - - 7,s 1s 7,s 0s
@@ -101,7 +103,7 @@ g[1] 2 - - -s 1s 7,s 0s
 0 - - g[2] 3q 2q
 g[2] 3 - - -
 
-%NextScore
+NextScore
 instrument=Verse 2
 
 %%%%%%%%%% Bar 57-58 %%%%%%%%%%
@@ -129,6 +131,8 @@ g[2] 3 2 - -
 %%%%%%%%%% Bar 71-72 %%%%%%%%%%
 0 - g[2] 3q 2s 0s 7,s 1s 7,s 0s
 7,q 1s 7,s 6,q 6,q - -
+\coda
+
 %%%%%%%%%% Bar 73-74 %%%%%%%%%%
 %%%%%%%%%% Bar 75-76 %%%%%%%%%%
 %%%%%%%%%% Bar 77-78 %%%%%%%%%%
