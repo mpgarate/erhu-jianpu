@@ -20,8 +20,12 @@ instrument=Verse
 1s 6, ) 0q 5s, ( 1q ) 1q 1q. 1s
 
 % bar 9-10
-1q. 1s ( 5s 3s ) 0q 1q 1q 1q 1s 2s (
-1 ) - - -
+1q. 1s ( 5s 3s ) 0q 1q 1q 1q 1s ( 2s
+2s 1 ) 0q 4s, ( 5q, ) 5q, 6q 6s, ( 5s,
+) 5
+
+
+
 %1q 1s 2s 1q
 
 %1s 6q, ) 0 5s, 1q 1q 1q. 1s

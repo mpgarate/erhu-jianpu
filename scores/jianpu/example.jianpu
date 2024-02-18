@@ -4,6 +4,8 @@
 %%% - http://lilypond.org/doc/v2.23/Documentation/notation/other
 %%% - https://jrgraphix.net/r/Unicode/1D100-1D1FF
 
+%%% For rests, use `0`
+
 title=Example
 1=D
 4/4
