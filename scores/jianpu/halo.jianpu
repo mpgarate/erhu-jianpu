@@ -5,16 +5,16 @@ title=Halo by Beyonce (For Erquan Erhu)
 instrument=Verse
 
 % Bar 1-2
-0    0q. 5s, \p (
-3s ) 3s 3q 3q down        2s 4s (
+0    0q. 5s, \p
+3s 3s 3q 3q down        2s 4s (
 
 % Bar 3-4
-4 )  0q. 5s,     (
-2s ) 2s 2q 2s ( 3s ) 1s 1s down (
+4 )  0q. 5s,
+2s 2s 2q 2s up ( 3s down 1s ) 1s down (
 
 % Bar 5-6
-1s 6, ) 0q 5s,  (
-1s ) 1s 1s 1s 1s 1s        1s 2s (
+1s 6, ) 0q 5s,
+1s 1s 1s 1s 1s 1s 1s 2s (
 
 
 % bar 7-8
@@ -22,11 +22,11 @@ instrument=Verse
 1s 1s 1s 1s 1s 0s 4s, 4s down  (
 
 % bar 9-10
-3 ) 0q. 5s, (
-3s ) 3s 3s 3s 3q 2s 4s (
+3 ) 0q. 5s,
+3s 3s 3s 3s 3q 2s 4s (
 
 % bar 11-12
-4s ) ( 3d 2d 1q ) 0q 2s ( 1s )
+4s \trill ) ( 3d 2d 1q ) 0q 2s ( 1s )
 2s ( 1s 2s 1s ) 2s ( 3s 1s ) 1s (
 
 % bar 13-14
