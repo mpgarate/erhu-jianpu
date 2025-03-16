@@ -15,7 +15,7 @@ title=Example
 1 \downbow \mf ( 2 3 4 5 ) - - -
 
 %%%%%%%%%% Bar 3-4 %%%%%%%%%%
-5
+5 \breathe
 
 \upbow 4 3. q2 1 - - 3
 
