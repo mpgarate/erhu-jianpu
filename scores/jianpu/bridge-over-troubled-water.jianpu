@@ -17,6 +17,15 @@ title=Bridge Over Troubled Water
 
 % Bar 7-8
 3q 2s 1s 3q 3 - 3q
-3. g[2] 1q g[1] 2. g[7,6,] 5,q
+3. g[2] 1q g[1] 2. g[,7,6] 5,q
 7,q 2q 7,s 6,s 5. -
 
+0. 7,q 7,q g[,6,7] 6q g[,5,6] 7q 0q
+
+g[,6,7,6,5] 6, - - -
+
+6,q 7,q 2 2q 3q 5q 5q
+
+5s 3s 2s 3s 0q. 7,q 7,q 7,s 6,s 5b,s 5q (
+
+- - ) - -
