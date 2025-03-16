@@ -4,7 +4,7 @@ title=Bridge Over Troubled Water
 
 
 % Bar 1-2
-- - 0q. g[2] 3q g[2] 5q.
+- - 0q. g[2] 3q g[3] 5q.
 3. 2q 1 ( -
 
 % Bar 3-4
@@ -13,41 +13,37 @@ title=Bridge Over Troubled Water
 
 % Bar 5-6
 g[2] 3 - -. \breathe 5q
-7 6q \trill g[54] 5 - 1q
+g[6] 7 6q ( \trill 5q \trill 4q ) g[4] 5 g[7] 1q Fr=4
 
 % Bar 7-8
-6q. 5s 4s 6s g[5] 6 - 6q
-%6. \trill g[54] 3q g[4] 5. g[32] 1q
-
-
+6q. Fr=2 5s ( Fr=1 4s Fr=1 ) 6s g[5] 6 - 6q
 6. \trill g[5] 4q g[4] 5 5q g[532] 1q
-3q 5q g[32] 1 - -
 
 % Bar 9-10
-% 3q 5q 3s 2s 1. -
-0. 3q 3q g[23] 2q g[12] 3q 0q
+3q ( 5q g[32] ) 1 - -
+0. 3q 3q ( g[23] 2q g[12] 3q ) 0q
 
 % Bar 11-12
-g[2321] 2 - - -
-2q 3q 5 5q 6q 1q 1q
+g[2321] 2 ( - - -
+2q 3q 5 ) 5q  ( 6q 1q ) 1q
 
 % Bar 13-14
-1s 6s 5s 6s 0q. 3q 3q 3s 2s 6,s 1q (
+1s ( 6s 5s 6s ) 0q. 3q ( 3q 3s 2s 6,s 1q 
 - - -. ) 5q
 
 % Bar 13-14
-g[2] 3 2q \trill 1q \trill 7s 1s 2s 1 6s
-5s 6s - - - 2q
+g[2] 3 ( 2q \trill 1q \trill 7s 1s 2s 1 6s
+5s ) 6s - - - 2q
 
 % Bar 15-16
 2. g[7656] 7q g[6] 7q g[763] 5.
 
 % Bar 17-18
 g[2] 3 2q \trill 1q \trill g[712] 1 -
-g[6] 7. 2q 7s 6s 5.
+g[6] 7. Fr=3 ( 2q 7s 6s ) 5.
 
 % Bar 20-21
-6q 5. g[5] 6q g[1] 6q g[6531232] 1q 0q
+6q ( 5. )  g[5] 6q ( g[1] 6q ) g[6531232] 1q 0q
 0 - - g[7] 1q 2q
 
 % Bar 23-24
@@ -57,7 +53,7 @@ g[1] 2 g[321612] 2 - -
 
 % Bar 25-26
 7q 6q 5 6q 5.
-g[5] 6q g[1] 6q g[6531232] 1q 0 0.
+g[5] 6q ( g[1] 6q ) g[6531232] 1q 0 0.
 
 0.. 1s 2s 1. 7q
 g[7] 1 - -. 2q
