@@ -1,35 +1,37 @@
 title=Bridge Over Troubled Water
-1=Db
+1=Ab
 4/4
 
 
 % Bar 1-2
-- - 0q. 7q, up 2q. up
-7., 6q, 5, ( -
+- - 0q. 3q up 5q. up
+3. 2q 1 ( -
 
 % Bar 3-4
-- - -. ) 2q
-2. 7s, ( 6s, 5s, 6s, ) 7.,
+- - -. ) 5q
+5. 3s ( 2s 1s 2s ) 3.
 
 % Bar 5-6
-7 - -. 2q
-4 3q \trill 2s 1s 2. 5q
+3 - -. 5q
+7 6q \trill 5s 4s 5. 1q
 
 % Bar 7-8
-3q 2s 1s 3q 3 - 3q
-3. g[2] 1q g[1] 2. g[,7,6] 5,q
-7,q 2q 7,s 6,s 5. -
+6q 5s 1s 6q 6 - 6q
+6. g[5] 4q g[4] 5. g[32] 1q
+3q 5q 3s 2s 1. -
 
-0. 7,q 7,q g[,6,7] 6q g[,5,6] 7q 0q
+0. 3q 3q g[23] 2q g[12] 3q 0q
 
-g[,6,7,6,5] 6, - - -
+g[2321] 2 - - -
 
-6,q 7,q 2 2q 3q 5q 5q
+2q 3q 5 5q 6q 1q 1q
 
-5s 3s 2s 3s 0q. 7,q 7,q 7,s 6,s 5b,s 5q (
+1s 6s 5s 6s 0q. 3q 3q 3s 2s 7s 1q (
 
-- - ) -. 2q
+- - -. ) 5q
 
-g[6,] 7 6q \trill 5q \trill 4s 5s 6s 5q 3s 2s 3s
+g[2] 3 2q \trill 1q \trill 7s 1s 2s 1 6s
 
-% 0 6q 6.
+5s 6s - - - 6q
+
+6. 7s 6s 5s 6s 7q 7s 6s 5q
